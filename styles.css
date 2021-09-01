@@ -43,6 +43,7 @@ button {
     font-size: 35px;
     margin: 2px;
     width: 200px;
+    cursor: pointer;
 }
 .start {
     color: rgb(0, 0, 0);

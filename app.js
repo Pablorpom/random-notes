@@ -1,4 +1,4 @@
-import notes from "./notes";
+import getRandomNote from "./utils/getRandomNote.js";
 
 const note = document.querySelector(".note");
 const start = document.querySelector(".start");
@@ -6,18 +6,18 @@ const stopR = document.querySelector(".stop");
 const inputNumber = document.querySelector("#input-number");
 
 
-let i = 1;
-let ind;
+let notesCounter = 0;
+let notesQuantity;
 let timer;
 
 const random = ()=> {
-    ind = inputNumber.value
-    if(i <= ind){
+    notesQuantity = inputNumber.value
+    if(notesCounter < notesQuantity){
         note.innerHTML = `<p>
-        ${(notes[Math.floor(Math.random() * 20) + 1])}
+        ${getRandomNote()}
         </p>`
         timer = setTimeout(random, 5000)
-        i++
+        notesCounter++
     }else{
         location.reload()
     }
@@ -30,8 +30,3 @@ inputNumber.addEventListener('keypress', function (e) {
 });
 start.addEventListener('click', random);
 stopR.addEventListener('click', ()=> clearTimeout(timer) );
-
-
-
-
- 
